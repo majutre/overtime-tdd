@@ -8,6 +8,5 @@ This app was developed using TDD/BDD and is based on [this course](https://www.u
 ### Main Gems
 - Rspec
 - Capybara
-- Better errors
 - Pry
-- 
+- Devise

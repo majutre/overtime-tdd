@@ -19,6 +19,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  gem 'pry', '~> 0.14.1'
 end
 
 group :development do

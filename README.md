@@ -1,24 +1,13 @@
-# README
+# Overtime App - TDD studies
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was developed using TDD/BDD and is based on [this course](https://www.udemy.com/course/professional-ruby-on-rails-coding-course/) by Jordan Hudgens.
 
-Things you may want to cover:
+### Language
+- Ruby on Rails
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Main Gems
+- Rspec
+- Capybara
+- Better errors
+- Pry
+- 

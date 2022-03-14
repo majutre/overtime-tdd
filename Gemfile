@@ -19,6 +19,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
+  gem 'factory_bot_rails', '~> 6.2'
 end
 
 group :development do

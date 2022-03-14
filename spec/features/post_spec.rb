@@ -6,7 +6,7 @@ describe 'navigation to' do
     login_as(@user, :scope => :user)
   end
 
-  describe 'index' do
+  describe '#index' do
     before do
       visit posts_path
     end
@@ -26,7 +26,7 @@ describe 'navigation to' do
     end
   end
 
-  describe 'creation' do
+  describe '#create' do
     before do
       visit new_post_path
     end
@@ -48,6 +48,27 @@ describe 'navigation to' do
       click_on "Save"
 
       expect(User.last.posts.last.rationale).to eq('User Association')
+    end
+  end
+
+  describe '#edit' do
+    before do
+      @post = FactoryBot.create(:post)
+    end
+    it 'can be reached by clicking link on index page' do
+      visit posts_path
+      
+      click_link("edit_post_#{@post.id}")
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'can be edited' do
+      visit edit_post_path(@post)
+      fill_in 'post[date]', with: Date.today
+      fill_in 'post[rationale]', with: 'Edited content'
+      click_on "Save"
+
+      expect(page).to have_content('Edited content')
     end
   end
 end

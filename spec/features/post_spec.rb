@@ -25,6 +25,7 @@ describe 'navigation to' do
       expect(page).to have_content(/rationale1|rationale2/)
     end
   end
+
   describe '#new' do
     it 'has a link from the navbar' do
       visit root_path
@@ -33,6 +34,7 @@ describe 'navigation to' do
       expect(page.status_code).to eq(200)
     end
   end
+
   describe '#create' do
     before do
       visit new_post_path
@@ -76,6 +78,16 @@ describe 'navigation to' do
       click_on "Save"
 
       expect(page).to have_content('Edited content')
+    end
+  end
+
+  describe '#delete' do
+    it 'can be deleted' do
+      @post = FactoryBot.create(:post)
+      visit posts_path
+
+      click_link("delete_post_#{@post.id}_from_index")
+      expect(page.status_code).to eq(200)
     end
   end
 end

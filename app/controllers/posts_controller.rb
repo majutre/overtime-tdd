@@ -32,6 +32,11 @@ class PostsController < ApplicationController
 
   def show
   end
+  
+  def destroy
+    @post.delete
+    redirect_to @post, notice: 'Post was deleted successfully'
+  end
 
   private
 

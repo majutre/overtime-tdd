@@ -1,5 +1,10 @@
 @import 'bootstrap/dist/css/bootstrap';
+@import '../../../bourbon/bourbon';
 
 .custom-nav {
 	margin-top: 15px;
-} 
+}
+
+.custom-menu {
+	width: 180px;
+}

@@ -11,3 +11,4 @@ This app was developed using TDD/BDD and is based on [this course](https://www.u
 - Pry
 - Devise
 - FactoryBot
+- Administrate

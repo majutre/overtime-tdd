@@ -1,5 +1,17 @@
 <%= form_for @post, class: "form-horizontal" do |f| %>
 
+  <% if @post.errors.any? %>
+    <ul class="alert alert-danger align-items-center" role="alert">
+      <% @post.errors.messages.each do |attr, msg| %>
+        <li> <%= "#{attr.capitalize} #{msg.to_sentence}" %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+
+  
+      
+        
   <div class="form-group mt-4">
   	<%= f.label :date %>	
   	<%= f.date_field :date, class: "form-control" %>	

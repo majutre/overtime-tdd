@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates_presence_of :date, :rationale
+  validates :date, :rationale, presence: true
 end

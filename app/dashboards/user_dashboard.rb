@@ -11,7 +11,7 @@ class UserDashboard < Administrate::BaseDashboard
     posts: Field::HasMany.with_options(searchable: false),
     id: Field::Number.with_options(searchable: false),
     email: Field::String.with_options(searchable: true),
-    password: Field::String.with_options(searchable: false),
+    password: Field::Password.with_options(searchable: false),
     first_name: Field::String.with_options(searchable: false),
     last_name: Field::String.with_options(searchable: false),
     type: Field::String.with_options(searchable: false),

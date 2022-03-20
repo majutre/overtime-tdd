@@ -8,13 +8,13 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    posts: Field::HasMany,
-    id: Field::Number,
-    email: Field::String,
-    password: Field::String,
-    first_name: Field::String,
-    last_name: Field::String,
-    type: Field::String,
+    posts: Field::HasMany.with_options(searchable: false),
+    id: Field::Number.with_options(searchable: false),
+    email: Field::String.with_options(searchable: true),
+    password: Field::String.with_options(searchable: false),
+    first_name: Field::String.with_options(searchable: false),
+    last_name: Field::String.with_options(searchable: false),
+    type: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES

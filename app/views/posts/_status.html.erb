@@ -1,0 +1,4 @@
+<div class="form-group">
+  <%= f.label :status %>	
+  <%= f.select :status, Post.statuses.keys, readonly: true, class: 'form-control' %>	
+</div>

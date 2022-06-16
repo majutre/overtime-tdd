@@ -3,6 +3,9 @@
 </div>
 
 <% if current_user %>
+	<div class="flexbox">
+		<p><%= current_user.email %></p>
+	</div>
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
 			<%= link_to "Home", root_path, class: 'nav-link active' %>

@@ -21,8 +21,23 @@ describe 'navigation to' do
     it 'has a list of posts' do
       post1 = FactoryBot.create(:post)
       post2 = FactoryBot.create(:second_post)
+      post1.update(user_id: @user.id)
+      post2.update(user_id: @user.id)
       visit posts_path
       expect(page).to have_content(/rationale1|rationale2/)
+    end
+
+    it 'has scope so only post creators can see their posts' do
+      post1 = FactoryBot.create(:post)
+      post2 = FactoryBot.create(:second_post)
+      post1.update(user_id: @user.id)
+      post2.update(user_id: @user.id)
+      post_from_other_user = FactoryBot.create(:post_from_other_user)
+
+      visit posts_path
+
+      expect(page).to have_content(/rationale1|rationale2/)
+      expect(page).to_not have_content(/Post from other user/)
     end
   end
 
@@ -98,6 +113,7 @@ describe 'navigation to' do
   describe '#delete' do
     it 'can be deleted' do
       @post = FactoryBot.create(:post)
+      @post.update(user_id: @user.id)
       visit posts_path
 
       click_link("delete_post_#{@post.id}_from_index")

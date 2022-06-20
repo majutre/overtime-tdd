@@ -1,15 +1,24 @@
 require 'rails_helper'
 
 describe 'navigation to' do
+  let(:user) { FactoryBot.create(:user) }
+  let(:post) do
+    Post.create(
+      date: Date.today, 
+      rationale: 'Test rationale', 
+      user_id: user.id
+    )
+  end
+
   before do
-    @user = FactoryBot.create(:user)
-    login_as(@user, :scope => :user)
+    login_as(user, :scope => :user)
   end
 
   describe '#index' do
     before do
       visit posts_path
     end
+
     it 'can be reached succesfully' do
       expect(page.status_code).to eq(200)
     end
@@ -19,24 +28,19 @@ describe 'navigation to' do
     end
 
     it 'has a list of posts' do
-      post1 = FactoryBot.create(:post)
-      post2 = FactoryBot.create(:second_post)
-      post1.update(user_id: @user.id)
-      post2.update(user_id: @user.id)
+      post1 = FactoryBot.build(:post)
+      post2 = FactoryBot.build(:second_post)
+      post1.update(user_id: user.id)
+      post2.update(user_id: user.id)
       visit posts_path
       expect(page).to have_content(/rationale1|rationale2/)
     end
 
     it 'has scope so only post creators can see their posts' do
-      post1 = FactoryBot.create(:post)
-      post2 = FactoryBot.create(:second_post)
-      post1.update(user_id: @user.id)
-      post2.update(user_id: @user.id)
       post_from_other_user = FactoryBot.create(:post_from_other_user)
 
       visit posts_path
 
-      expect(page).to have_content(/rationale1|rationale2/)
       expect(page).to_not have_content(/Post from other user/)
     end
   end
@@ -54,6 +58,7 @@ describe 'navigation to' do
     before do
       visit new_post_path
     end
+
     it 'has a new form that can be reached' do
       expect(page.status_code).to eq(200)
     end
@@ -76,21 +81,16 @@ describe 'navigation to' do
   end
 
   describe '#edit' do
-    before do
-      @edit_user = User.create(first_name: "Edit", last_name: "Test", email: "edit@test.com", password: "12345678", password_confirmation: "12345678")
-      login_as(@edit_user, :scope => :user)
-      @edit_post = Post.create(date: Date.today, rationale: "Edit test", user_id: @edit_user.id)
-    end
-    
     it 'can be reached by clicking link on index page' do
+      post_to_edit = Post.create(date: Date.today, rationale: "Edit test", user_id: user.id)
       visit posts_path
-      
-      click_link("edit_post_#{@edit_post.id}")
+
+      click_link("edit_post_#{post_to_edit.id}")
       expect(page.status_code).to eq(200)
     end
 
     it 'can be edited' do
-      visit edit_post_path(@edit_post)
+      visit edit_post_path(post)
 
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: 'Edited content'
@@ -104,7 +104,7 @@ describe 'navigation to' do
       non_authorized_user = FactoryBot.create(:non_authorized_user)
       login_as(non_authorized_user, :scope => :user)
 
-      visit edit_post_path(@edit_post)
+      visit edit_post_path(post)
 
       expect(current_path).to eq(root_path)
     end
@@ -112,11 +112,11 @@ describe 'navigation to' do
 
   describe '#delete' do
     it 'can be deleted' do
-      @post = FactoryBot.create(:post)
-      @post.update(user_id: @user.id)
+      post_to_delete = Post.create(date: Date.today, rationale: 'Delete rationale', user_id: user.id)
+
       visit posts_path
 
-      click_link("delete_post_#{@post.id}_from_index")
+      click_link("delete_post_#{post_to_delete.id}_from_index")
       expect(page.status_code).to eq(200)
     end
   end

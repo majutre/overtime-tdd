@@ -14,7 +14,8 @@ class PostDashboard < Administrate::BaseDashboard
     rationale: Field::Text.with_options(searchable: true),
     created_at: Field::Date.with_options(searchable: false),
     updated_at: Field::Date.with_options(searchable: false),
-    status: Field::Select.with_options(searchable: true, collection: Post.statuses.keys.to_a)
+    status: Field::Select.with_options(searchable: true, collection: Post.statuses.keys.to_a),
+    overtime_request: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,6 +28,7 @@ class PostDashboard < Administrate::BaseDashboard
     status
     date
     rationale
+    overtime_request
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -39,6 +41,7 @@ class PostDashboard < Administrate::BaseDashboard
     rationale
     created_at
     updated_at
+    overtime_request
   ].freeze
 
   # FORM_ATTRIBUTES

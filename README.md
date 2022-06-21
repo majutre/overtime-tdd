@@ -13,3 +13,5 @@ This app was developed using TDD/BDD and is based on [this course](https://www.u
 - FactoryBot
 - Administrate
 - Pundit
+- Coverage
+- Twilio

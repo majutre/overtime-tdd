@@ -9,18 +9,37 @@ RSpec.describe User, type: :model do
     it 'can be created' do
       expect(@user).to be_valid
     end
+  end
 
-    it 'cannot be created without first_name and last_name' do
+  describe 'validations' do
+    it 'cannot be created without a first_name' do
       @user.first_name = nil
+      
+      expect(@user).to_not be_valid
+    end
+
+    it 'cannot be created without a last_name' do
       @user.last_name = nil
       
       expect(@user).to_not be_valid
     end
 
-    it 'can be created without a phone number' do
+    it 'cannot be created without a phone number' do
       @user.phone = nil
 
-      expect(@user).to be_valid
+      expect(@user).to_not be_valid
+    end
+
+    it 'requires phone attribute to only contain digits' do
+      @user.phone = 'thegreatstr'
+
+      expect(@user).to_not be_valid
+    end
+
+    it 'requires phone attribute to contain only 11 chars' do
+      @user.phone = '1234567890'
+
+      expect(@user).to_not be_valid
     end
   end
 

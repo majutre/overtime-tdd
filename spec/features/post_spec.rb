@@ -6,7 +6,8 @@ describe 'navigation to' do
     Post.create(
       date: Date.today, 
       rationale: 'Test rationale', 
-      user_id: user.id
+      user_id: user.id, 
+      overtime_request: 0.5
     )
   end
 
@@ -66,14 +67,16 @@ describe 'navigation to' do
     it 'can be created through new form' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: 'Some rationale with rspec'
-      click_on "Save"
+      fill_in 'post[overtime_request]', with: 4.0
 
-      expect(page).to have_content('Some rationale with rspec')
+      # expect(page).to have_content('Some rationale with rspec')
+      expect { click_on "Save"}.to change(Post, :count).by 1
     end
 
     it 'will have a user associated with' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: 'User Association'
+      fill_in 'post[overtime_request]', with: 4.0
       click_on "Save"
 
       expect(User.last.posts.last.rationale).to eq('User Association')
@@ -104,7 +107,7 @@ describe 'navigation to' do
       non_authorized_user = FactoryBot.create(:non_authorized_user)
       login_as(non_authorized_user, :scope => :user)
 
-      visit edit_post_path(post)
+      visit edit_post_path(post.id)
 
       expect(current_path).to eq(root_path)
     end

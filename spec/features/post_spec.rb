@@ -82,7 +82,7 @@ describe 'navigation to' do
 
   describe '#edit' do
     it 'can be reached by clicking link on index page' do
-      post_to_edit = Post.create(date: Date.today, rationale: "Edit test", user_id: user.id)
+      post_to_edit = Post.create(date: Date.today, rationale: "Edit test", user_id: user.id, overtime_request: 3.5)
       visit posts_path
 
       click_link("edit_post_#{post_to_edit.id}")
@@ -112,7 +112,7 @@ describe 'navigation to' do
 
   describe '#delete' do
     it 'can be deleted' do
-      post_to_delete = Post.create(date: Date.today, rationale: 'Delete rationale', user_id: user.id)
+      post_to_delete = Post.create(date: Date.today, rationale: 'Delete rationale', user_id: user.id, overtime_request: 1.0)
 
       visit posts_path
 

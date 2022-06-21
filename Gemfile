@@ -21,6 +21,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'simplecov', require: false
 end
 
 group :development do

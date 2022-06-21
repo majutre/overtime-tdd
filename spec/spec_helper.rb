@@ -1,9 +1,4 @@
-
-
 RSpec.configure do |config|
-  # rspec-expectations config goes here. You can use an alternate
-  # assertion/expectation library such as wrong or the stdlib/minitest
-  # assertions if you prefer.
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -16,5 +11,9 @@ RSpec.configure do |config|
 
   config.before(:all) do
     FactoryBot.reload
+  end
+
+  config.before(:each) do
+    stub_const('SmsTool', FakeSms)
   end
 end

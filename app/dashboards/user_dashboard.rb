@@ -14,7 +14,8 @@ class UserDashboard < Administrate::BaseDashboard
     password: Field::Password.with_options(searchable: false),
     first_name: Field::String.with_options(searchable: false),
     last_name: Field::String.with_options(searchable: false),
-    type: Field::String.with_options(searchable: false),
+    type: Field::String.with_options(searchable: true),
+    phone: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,6 +28,7 @@ class UserDashboard < Administrate::BaseDashboard
     email
     first_name
     type
+    phone
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,6 +40,7 @@ class UserDashboard < Administrate::BaseDashboard
     first_name
     last_name
     type
+    phone
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -48,6 +51,7 @@ class UserDashboard < Administrate::BaseDashboard
     password
     first_name
     last_name
+    phone
   ].freeze
 
   # COLLECTION_FILTERS

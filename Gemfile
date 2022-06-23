@@ -6,6 +6,7 @@ ruby '2.6.6'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.7'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.6', '>= 5.6.4'
+
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
@@ -20,6 +21,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -37,3 +39,4 @@ gem 'pry', '~> 0.14.1'
 gem 'administrate', '~> 0.17.0'
 gem 'bourbon', '~> 7.2'
 gem 'pundit', '~> 2.2'
+gem 'twilio-ruby', '~> 5.67', '>= 5.67.3'

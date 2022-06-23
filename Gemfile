@@ -20,6 +20,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -37,3 +38,4 @@ gem 'pry', '~> 0.14.1'
 gem 'administrate', '~> 0.17.0'
 gem 'bourbon', '~> 7.2'
 gem 'pundit', '~> 2.2'
+gem "font-awesome-sass", "~> 6.1.1"

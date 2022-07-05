@@ -13,7 +13,7 @@ describe 'admin dashboard' do
 
   context 'non-admin user tries to reach' do
     before do
-      user = FactoryBot.create(:user)
+      user = create(:user)
       login_as(user, :scope => :user)
   
       visit admin_root_path
@@ -29,7 +29,7 @@ describe 'admin dashboard' do
   
   context 'admin user tries to reach' do
     before do
-      admin_user = FactoryBot.create(:admin_user)
+      admin_user = create(:admin_user)
       login_as(admin_user, :scope => :user)
   
       visit admin_root_path

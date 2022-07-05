@@ -13,19 +13,19 @@
 		<li class="nav-item">
 			<%= link_to "Time Entries", posts_path, class: "nav-link #{active?(posts_path)}" %>
 		</li>
+
+		<%= render 'shared/audit_log_tab' if policy(AuditLog).index? %>
+
 		<li class="nav-item">
 			<%= link_to "Add New Entry", new_post_path, class: "nav-link #{active?(new_post_path)}", id: 'new_post_from_nav' %>
 		</li>
+		
 		<li class="dropdown float-right ml-auto nav-item">
 			<a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link">Account<strong class="caret"></strong></a>
 			<ul class="dropdown-menu custom-menu">
-				<% if current_user.type == 'AdminUser' %>
-					<li>
-						<%= link_to "Admin Dashboard", admin_root_path, class: 'nav-link' %>
-					</li>
-					<li class="divider">
-					</li>
-				<% end %>
+
+				<%= render 'shared/admin_dashboard_tab' %>
+
 				<li>
 					<%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
 				</li>

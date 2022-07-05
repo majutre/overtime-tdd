@@ -1,10 +1,25 @@
 @import 'bootstrap/dist/css/bootstrap';
 @import '../../../bourbon/bourbon';
 
+$primary-color: #1F4690;
+$secondary-color:#3A5BA0;
+$comp-color: #FFA500;
+$bg-color: #FFE5B4;
+
 .custom-nav {
 	margin-top: 15px;
+	color: $primary-color;
 }
 
 .custom-menu {
 	width: 180px;
+}
+
+.custom-btn {
+  background-color: $primary-color;
+	border-color: $secondary-color;
+}
+
+.custom-text {
+	color: $secondary-color;
 }

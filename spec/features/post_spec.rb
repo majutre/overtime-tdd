@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'navigation to' do
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
   let(:post) do
     Post.create(
       date: Date.today, 

@@ -38,4 +38,5 @@ gem 'pry', '~> 0.14.1'
 gem 'administrate', '~> 0.17.0'
 gem 'bourbon', '~> 7.2'
 gem 'pundit', '~> 2.2'
-gem "font-awesome-sass", "~> 6.1.1"
+gem 'font-awesome-sass', '~> 6.1.1'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'

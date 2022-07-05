@@ -1,4 +1,4 @@
-<% if current_user.type == 'AdminUser' %>
+<% if current_user.try(:type) == 'AdminUser' %>
   <li>
     <%= link_to "Admin Dashboard", admin_root_path, class: 'nav-link' %>
   </li>

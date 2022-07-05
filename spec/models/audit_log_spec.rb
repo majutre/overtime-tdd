@@ -34,8 +34,8 @@ RSpec.describe AuditLog, type: :model do
       @new_audit_log = AuditLog.create(user_id: user.id)
     end
 
-    it 'should have a status of 0' do
-      expect(@new_audit_log.status).to eq(0)
+    it 'should have a status of pending' do
+      expect(@new_audit_log.status).to eq('pending')
     end
 
     it 'should have a start_date equal to 6 days prior' do

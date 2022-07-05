@@ -5,6 +5,8 @@ class AuditLog < ApplicationRecord
 
   after_initialize :set_defaults
 
+  enum status: { pending: 0, confirmed: 1 }
+
   private
 
   def set_defaults

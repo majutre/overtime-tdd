@@ -9,8 +9,16 @@
 .homepage-block {
   background-color: $secondary-color;
   color: $bg-color;
-  margin: 15px;
+  margin: 10px 20px;
   padding: 15px;
+}
+
+.homepage-block-details {
+  font-weight: 900;
+}
+
+.homepage-ruler {
+  border-top: 1px solid rgba(255, 165, 0, .3);
 }
 
 .with-border {

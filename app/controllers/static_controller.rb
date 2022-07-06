@@ -1,6 +1,10 @@
 class StaticController < ApplicationController
   def index
-    @pending_approvals = Post.where(status: 'pending')
-    @recent_audit_items = AuditLog.last(10)
+    if admin_types.include?(current_user.type)
+      @pending_approvals = Post.pending
+      @recent_audit_items = AuditLog.last(10)
+    else
+
+    end
   end
 end

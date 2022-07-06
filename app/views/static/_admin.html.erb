@@ -8,5 +8,16 @@
     <%= render partial: 'pending_approval', locals: { pending_approvals: @pending_approvals } %>
   </div>
 
-  <div class="homepage-container with-border">gsfdgsdfgsdf</div>
+  <div class="homepage-container row with-border">
+    <div class="col-md-12">
+      <h2>Confirmation Log</h2>
+      <hr class="mt-2 mb-4 w-75 float-left">
+    </div>
+
+    <%= render partial: 'confirmation_log', locals: { recent_audit_items: @recent_audit_items } %>
+
+    <div class="col text-center">
+      <%= link_to 'View all items', audit_logs_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
 </div>

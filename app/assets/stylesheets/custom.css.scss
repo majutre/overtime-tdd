@@ -3,9 +3,12 @@
 
 $primary-color: #1F4690;
 $secondary-color:#3A5BA0;
-$comp-color: #FFA500;
+$comp-color: #719bf5;
 $bg-color: #FFE5B4;
 
+body {
+	color: $primary-color;
+}
 .custom-nav {
 	margin-top: 15px;
 	color: $primary-color;
@@ -17,6 +20,7 @@ $bg-color: #FFE5B4;
 
 .custom-btn {
   background-color: $primary-color;
+	color: $comp-color;
 	border-color: $secondary-color;
 }
 

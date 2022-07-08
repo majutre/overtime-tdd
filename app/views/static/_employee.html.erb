@@ -1,13 +1,14 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="card col-md-5 col employee-block with-border">
-      <h3 class="card-title py-3 text-center">Pending confirmation</h3>
+  <% if @pending_audit_confirmations.any? %>
+    <div class="jumbotron employee-block pt-4">
+      <h3 class="card-title pb-3 text-center">Pending confirmation</h3>
       <%= render partial: 'pending_audit_confirmations', 
           locals: { pending_audit_confirmations: @pending_audit_confirmations } %>
     </div>
+  <% end %>
 
-    <div class="col-md-5 col card card-body employee-block">
-    </div>
-    
+  <div class="jumbotron employee-block text-center pt-4">
+    <h3 class="card-title pb-3 text-center">Request overtime</h3>
+    <%= link_to 'Request Overtime Approval', new_post_path, class: 'btn custom-btn btn-lg' %>
   </div>
 </div>

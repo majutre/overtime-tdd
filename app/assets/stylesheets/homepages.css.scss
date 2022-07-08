@@ -34,9 +34,8 @@
   border-radius: 5px;
 }
 
-.card.employee-block {
-  background-color: $bg-color;
+.employee-block {
   color: $primary-color;
-  border: 0;
-  margin: 15px;
+  margin-top: 0;
+  padding-top: 0;
 }

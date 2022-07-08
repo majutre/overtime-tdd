@@ -1,0 +1,41 @@
+@import "./custom.css.scss";
+
+.homepage-container {
+  background-color: #E3E3E3;
+  margin: 20px 30px;
+  padding: 40px 10px 20px 60px;
+}
+
+.homepage-block {
+  background-color: $secondary-color;
+  color: $bg-color;
+  margin: 10px 20px;
+  padding: 15px;
+}
+
+.homepage-block:hover {
+  background-color: $primary-color;
+  cursor: pointer;
+}
+
+.homepage-block-details {
+  font-weight: 900;
+}
+
+.homepage-ruler {
+  border-top: 1px solid rgba(255, 165, 0, .3);
+  clear: both;
+  display: block;
+}
+
+.with-border {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.employee-block {
+  color: $primary-color;
+  margin-top: 0;
+  padding-top: 0;
+}

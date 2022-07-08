@@ -1,5 +1,5 @@
-<div class="jumbotron">
-	<h2>
-		This is the homepage
-	</h2>
-</div> 
+<% if admin_types.include?(current_user.try!(:type)) %>
+	<%= render 'admin' %>
+<% else %>
+	<%= render 'employee' %>
+<% end %>

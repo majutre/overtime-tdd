@@ -1,0 +1,6 @@
+<% @pending_audit_confirmations.each do |item| %>
+  <%= link_to "Confirm no overtime was performed for the week of #{item.start_date}",
+      confirm_audit_log_path(item), class: 'btn btn-primary btn-block',
+      id: "confirm_#{item.id}",
+      data: { confirm: 'Confirm no overtime was done?'} %>
+<% end %>

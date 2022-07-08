@@ -1,0 +1,24 @@
+<div class="row">
+  <% @recent_audit_items.each do |item| %>
+    <div class="homepage-block col-md-3 with-border">
+      <h4>
+        <%= item.user.full_name %>
+      </h4>
+
+      <hr class="mt-0 mb-4 homepage-ruler">
+
+      <p>
+        <span class='homepage-block-details'>Starting date:</span> <%= item.start_date %>
+      </p>        
+      <p>
+        <span class='homepage-block-details'>Confirmed at:</span> <%= item.end_date || status_badge('pending') %>
+      </p>        
+      
+      <p>
+        <span class='homepage-block-details'>Status:</span> <%= status_badge item.status %>
+      </p>
+    </div>
+  <% end %>
+
+  <hr class="mt-0 mb-4 homepage-ruler">
+</div>

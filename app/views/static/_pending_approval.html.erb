@@ -1,0 +1,28 @@
+<div class="row">
+  <% @pending_approvals.each do |item| %>
+    <div class="homepage-block col-md-3 with-border">
+      <h4>
+        <%= item.user.full_name %>
+      </h4>
+
+      <hr class="mt-0 mb-4 homepage-ruler">
+
+      <p>
+        <span class='homepage-block-details'>Submitted in:</span> <%= item.date %>
+      </p>        
+      
+      <p>
+        <span class='homepage-block-details'>Rationale:</span> <%= truncate item.rationale, length: 50 %>
+      </p>
+
+      <div class="row">
+        <div class="col-md-6 column">
+          <%= link_to 'Approve', approve_post_path(item), class:'btn btn-success btn-block', id: "approve_#{item.id}" %>
+        </div>
+        <div class="col-md-6 column">
+          <%= link_to 'Review', edit_post_path(item), class:'btn btn-warning btn-block custom-text' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

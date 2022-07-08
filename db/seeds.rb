@@ -29,12 +29,17 @@ end
 
 puts "[seeds] 20 posts have been created"
 
-20.times do |log|
+5.times do |log|
   AuditLog.create!(
     user_id: @user.id, 
     status: 0, 
     start_date: (Date.today - rand(1..5).days)
+  )  
+  AuditLog.create!(
+    user_id: @user.id, 
+    status: 0, 
+    start_date: (Date.today - rand(12..20).days)
   )
 end
 
-puts "[seeds] 20 audit logs have been created"
+puts "[seeds] 10 audit logs have been created"

@@ -13,6 +13,11 @@ development:
 test:
   <<: *default
   database: Overtime_test
+  host: localhost
+  username: <%= ENV.fetch("DB_USERNAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+  port: 5432
+
 
 production:
   <<: *default

@@ -6,6 +6,8 @@ class AuditLog < ApplicationRecord
   after_initialize :set_defaults
   before_update :set_end_date, if: :confirmed?
 
+  scope :by_start_date, -> { order('start_date DESC') }
+
   enum status: { pending: 0, confirmed: 1 }
 
   private

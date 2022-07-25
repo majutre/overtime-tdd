@@ -9,12 +9,12 @@
 puts "[seeds] User created"
 
 @admin = AdminUser.create(
-                            email: "admin@a", 
-                            password: "12345678", 
-                            password_confirmation: "12345678", 
-                            first_name: "Admin", 
-                            last_name: "User"
-                          )
+                          email: "admin@a", 
+                          password: "12345678", 
+                          password_confirmation: "12345678", 
+                          first_name: "Admin", 
+                          last_name: "User"
+                        )
 
 puts "[seeds] AdminUser created"
 

@@ -48,6 +48,14 @@ describe 'navigation to' do
 
   describe '#new' do
     it 'has a link from the navbar' do
+      employee = Employee.create(
+        first_name: 'Employee',
+        last_name: 'Employee',
+        email: 'emp@example.com', 
+        password: '12345678', 
+        password_confirmation: '12345678')
+      login_as(employee, :scope => :user)
+
       visit root_path
       
       click_link("new_post_from_nav")

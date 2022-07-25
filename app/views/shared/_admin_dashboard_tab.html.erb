@@ -1,8 +1,6 @@
-<% if admin_types.include?(current_user.try!(:type)) %>
-  <li>
-    <%= link_to "Admin Dashboard", admin_root_path, class: 'nav-link' %>
-  </li>
-  
-  <li class="divider">
-  </li>
-<% end %>
+<li>
+  <%= link_to "Admin Dashboard", admin_root_path, class: 'nav-link' %>
+</li>
+
+<li class="divider">
+</li>

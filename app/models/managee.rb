@@ -1,0 +1,2 @@
+class Managee < ApplicationRecord
+end

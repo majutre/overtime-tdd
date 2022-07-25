@@ -23,4 +23,16 @@ RSpec.describe User, type: :model do
       expect(@user.full_name).to eq('Stark, Arya')
     end
   end
+
+  describe 'relationship between admins and employees' do
+    it 'allows for admins to be associated with multiple employees' do
+      employee_1 = create(:user)
+      employee_2 = create(:user)
+      admin = create(:admin_user)
+      Managee.create!(user_id: admin.id, managee_id: employee_1.id)
+      Managee.create!(user_id: admin.id, managee_id: employee_2.id)
+
+      expect(admin.managees.count).to eq(2)
+    end
+  end
 end
